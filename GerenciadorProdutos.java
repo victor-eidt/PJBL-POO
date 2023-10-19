@@ -29,4 +29,34 @@ class GerenciadorProdutos {
             System.out.println("-------------------------");
         }
     }
+
+    public void receberProdutos(String nomeProduto, int quantidadeRecebida) {
+        Produto produtoExistente = buscarProdutoPeloNome(nomeProduto);
+        if (produtoExistente != null) {
+            produtoExistente.adicionarEstoque(quantidadeRecebida);
+        } else {
+            System.out.println("Produto não encontrado!");
+        }
+    }
+
+    public void venderProduto(String nomeProduto, int quantidadeVendida) {
+        Produto produtoExistente = buscarProdutoPeloNome(nomeProduto);
+        if (produtoExistente != null) {
+            if (produtoExistente.getQuantidadeEmEstoque() < quantidadeVendida) {
+                System.out.println("Estoque insuficiente para venda!");
+            } else {
+                produtoExistente.removerEstoque(quantidadeVendida);
+            }
+        } else {
+            System.out.println("Produto não encontrado!");
+        }
+    }
+    private Produto buscarProdutoPeloNome(String nomeProduto) {
+        for (Produto produto : produtos) {
+            if (produto.getNome().equals(nomeProduto)) {
+                return produto;
+            }
+        }
+        return null;
+    }
 }

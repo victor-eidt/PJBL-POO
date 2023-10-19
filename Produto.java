@@ -26,4 +26,33 @@ abstract class Produto implements IProduto {
     public void exibirInformacoes() {
         System.out.println("Nome: " + nome + ", Descrição: " + descricao + ", Preço: " + preco + ", Categoria: " + categoria);
     }
+    private int quantidadeEmEstoque;
+
+    public int getQuantidadeEmEstoque() {
+        return quantidadeEmEstoque;
+    }
+
+    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+        if (quantidadeEmEstoque < 0) {
+            System.out.println("Quantidade em estoque não pode ser negativa.");
+            return;
+        }
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+
+    public void adicionarEstoque(int quantidade) {
+        if (quantidade < 0) {
+            System.out.println("Quantidade não pode ser negativa.");
+            return;
+        }
+        this.quantidadeEmEstoque += quantidade;
+    }
+
+    public void removerEstoque(int quantidade) {
+        if (quantidade > this.quantidadeEmEstoque) {
+            System.out.println("Não há quantidade suficiente em estoque.");
+            return;
+        }
+        this.quantidadeEmEstoque -= quantidade;
+    }
 }
