@@ -32,7 +32,7 @@ class GerenciadorProdutos {
 
     public void receberProdutos(String nomeProduto, int quantidadeRecebida) {
 
-        Produto produtoExistente = buscarProdutoPeloNome(nomeProduto);
+        Produto produtoExistente = (Produto) buscarProdutoPeloNome(nomeProduto);
 
         if (produtoExistente != null) {
             produtoExistente.adicionarEstoque(quantidadeRecebida);
@@ -43,7 +43,7 @@ class GerenciadorProdutos {
 
     public void venderProduto(String nomeProduto, int quantidadeVendida) {
 
-        Produto produtoExistente = buscarProdutoPeloNome(nomeProduto);
+        Produto produtoExistente = (Produto) buscarProdutoPeloNome(nomeProduto);
 
         if (produtoExistente != null) {
 
@@ -57,9 +57,8 @@ class GerenciadorProdutos {
             System.out.println("Produto não encontrado!");
         }
     }
-    private Produto buscarProdutoPeloNome(String nomeProduto) {
-
-        for (Produto produto : produtos) {
+    private IProduto buscarProdutoPeloNome(String nomeProduto) {
+        for (IProduto produto : produtos) {
             if (produto.getNome().equals(nomeProduto)) {
                 return produto;
             }
