@@ -36,6 +36,9 @@ abstract class Produto implements IProduto {
     public boolean verificarDisponibilidadeEmEstoque() {
         return false;
     }
+    public boolean isFragil(){
+        return false;
+    }
 
     public void registrarSaidaDeEstoque(int quantidade) {
 
