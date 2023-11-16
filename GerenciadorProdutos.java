@@ -12,7 +12,7 @@ class GerenciadorProdutos {
         produtos.add(produto);
     }
 
-    public void removerProduto(IProduto produto) {
+    public void removerProduto(String produto) {
         produtos.remove(produto);
     }
 
@@ -39,6 +39,10 @@ class GerenciadorProdutos {
         } else {
             System.out.println("Produto não encontrado!");
         }
+    }
+
+    public List<IProduto> getProdutos() {
+        return new ArrayList<>(produtos); // Retorna uma cópia da lista
     }
 
     public void venderProduto(String nomeProduto, int quantidadeVendida) {
