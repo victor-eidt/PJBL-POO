@@ -42,8 +42,7 @@ class GerenciadorProdutos {
     }
 
     public List<IProduto> getProdutos() {
-        return new ArrayList<>(produtos); // Retorna uma cópia da lista
-    }
+        return new ArrayList<>(produtos);
 
     public void venderProduto(String nomeProduto, int quantidadeVendida) {
 
